@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NewsRemote: Codable {
+struct ModelForNewsRemote: Codable {
     let status: String?
     let totalResults: Int?
     let articles: [Article]?
