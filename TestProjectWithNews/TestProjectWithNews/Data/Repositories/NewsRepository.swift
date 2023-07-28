@@ -45,6 +45,24 @@ final class NewsRepository: NewsRepositoryProtocol {
             }
         }
     
+    func searchNewsOverPeriodOfTime(startData: Date, endData: Date, completion: @escaping (Result<ModelForNews?, Error>) -> Void) {
+        apiService.searchNewsOverPeriodOfTime(startData: startData, endData: endData) { result in
+            switch result {
+            case .success(let modelForNewsRemote):
+                if let remoteData = modelForNewsRemote {
+                    let modelForNews = ModelForNews(remote: remoteData)
+                    completion(.success(modelForNews))
+                } else {
+                    let errror = NSError(domain: "Error fetching news in these dates", code: -1, userInfo: nil)
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    
+    
     private func performReguest(for url: URL, completion: @escaping (Result<ModelForNews, Error>) -> Void) {
         let session = URLSession.shared
         let task = session.dataTask(with: url) { data, response, error in
