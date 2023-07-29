@@ -10,7 +10,8 @@ import Foundation
 private enum Constants {
     static let baseURL: String = "https://newsapi.org/v2/everything"
     static let topHeadlineBaseURL: String = "https://newsapi.org/v2/top-headlines"
-    //    static let apiKey: String = "8643223550e74bf697382b1458fb72b5"
+    // if the number of requests for the key is exceeded, this key can be used
+    //    static let apiKey: String = "8643223550e74bf697382b1458fb72b5" 
     static let apiKey: String = "b29c39ecce764b31a4bbd88b2d8acaaf"
     static let dateFormat: String = "yyyy-MM-dd"
 }
@@ -20,6 +21,7 @@ private enum NewsError: Error {
     case noDataReceived
 }
 
+// MARK: - class APIService
 final class APIService {
     
     private static func makeURL(withBaseURL baseURL: String, parameters: [String: String]) -> URL? {
@@ -30,7 +32,7 @@ final class APIService {
     
     private func performAPICall(with url: URL, completion: @escaping (ModelForNewsRemote?) -> Void) {
         let session = URLSession.shared
-        let task = session.dataTask(with: url) { (data, responce, error) in
+        session.dataTask(with: url) { (data, responce, error) in
             
             if let error = error {
                 print(Strings.errorFetchingData + "\(String(describing: data)) ")

@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct SearchNewsTextField: View {
+    
+    typealias ActionHendler = () -> Void
     @State var title: String
     @Binding var text: String
-    let action: () -> Void
+    let action: ActionHendler
     
     var body: some View {
         HStack {
             TextField(title, text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            Button(action: action) {
-                Text(Strings.search)
+            Button(action: {
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                action()
+            }) {
+                Text("Search")
             }
             .foregroundColor(.white)
             .padding(.all, 10)

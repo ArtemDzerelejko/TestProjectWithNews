@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ImageView: View {
+    
     @State var urlImage: String
     var width = UIScreen.main.bounds.width * 0.9 
     var height = UIScreen.main.bounds.height * 0.5

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewsView: View {
+    
     @StateObject private var viewModel = NewsViewModel()
     @State private var searchKeyword = ""
     @State private var startDate = Date()
@@ -16,10 +17,12 @@ struct NewsView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // MARK: - SearchNewsTextField
                 SearchNewsTextField(title: Strings.search, text: $searchKeyword) {
                     viewModel.searchNewsWithKeyword(searchKeyword)
                 }
                 
+                // MARK: - For searching by date
                 HStack {
                     Image(systemName: Strings.calendar)
                         .font(.system(size: 25))
@@ -41,6 +44,7 @@ struct NewsView: View {
                 .cornerRadius(10)
                 Divider()
                 
+                // MARK: - View state Switch
                 switch true {
                 case viewModel.isLoading:
                     ProgressView()

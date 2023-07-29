@@ -28,14 +28,20 @@ enum Strings {
     static let noName: String = "No Name"
     
     // MARK: - SearchNewsTextField
-    static let search: String = "Пошук"
+    static let search: String = "Search"
     
     // MARK: - AuthorText
-    static let author: String = "Автор - "
+    static let author: String = "Author - "
+    
+    // MARK: - SourceId
+    static let id: String = "Id - "
+    
+    // MARK: - SourceName
+    static let name: String = "Name - "
     
     // MARK: - NewsView
-    static let searchByRelevantDates: String = "Пошук за відповідними датами"
-    static let news: String = "Новини"
+    static let searchByRelevantDates: String = "Search by relevant dates"
+    static let news: String = "News"
     
     // MARK: - SystemImage
     static let photo: String = "photo"

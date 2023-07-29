@@ -12,13 +12,16 @@ private enum Constants {
 }
 
 final class NewsViewModel: ObservableObject {
+    
     @Published var articles: [Article] = []
     @Published var searchResults: [Article] = []
     @Published var isLoading: Bool = false
     @Published var filteredArticles: [Article] = []
     private let newsUseCase = NewsUseCase()
     
+    // MARK: - Get news in country
     func getNewsInCountry() {
+        
         isLoading = true
         
         newsUseCase.creatingRequestToTheServerToGetNews { [weak self] result in
@@ -41,7 +44,9 @@ final class NewsViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Search nesw with keyword
     func searchNewsWithKeyword(_ keyword: String) {
+        
         isLoading = true
         
         newsUseCase.searchNewsByKeyword(keyword) { [weak self] result in
@@ -63,7 +68,9 @@ final class NewsViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Search news over period of time
     func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date) {
+        
         isLoading = true
         
         newsUseCase.searchNewsOverPeriodOfTime(startDate: startDate, endDate: endDate) { [weak self] result in
@@ -86,6 +93,7 @@ final class NewsViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Filter articles
     func filterArticles(startDate: Date, endDate: Date) {
         filteredArticles = articles.filter { article in
             if let dateString = article.publishedAt {

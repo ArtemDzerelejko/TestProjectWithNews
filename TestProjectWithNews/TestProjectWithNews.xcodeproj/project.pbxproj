@@ -25,6 +25,8 @@
 		AC8117192A74721600368F1E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC8117182A74721600368F1E /* DatePickerView.swift */; };
 		AC81171B2A7475B200368F1E /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81171A2A7475B200368F1E /* ListView.swift */; };
 		AC81171D2A74FE2700368F1E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC81171C2A74FE2700368F1E /* Strings.swift */; };
+		AC9895742A75CD5B00B751F4 /* SourceId.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9895732A75CD5B00B751F4 /* SourceId.swift */; };
+		AC9895762A75CE5800B751F4 /* SourceName.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9895752A75CE5800B751F4 /* SourceName.swift */; };
 		ACE711482A7303B200D84C5B /* TestProjectWithNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE711472A7303B200D84C5B /* TestProjectWithNewsApp.swift */; };
 		ACE7114C2A7303B300D84C5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE7114B2A7303B300D84C5B /* Assets.xcassets */; };
 		ACE7114F2A7303B300D84C5B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE7114E2A7303B300D84C5B /* Preview Assets.xcassets */; };
@@ -49,6 +51,8 @@
 		AC8117182A74721600368F1E /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		AC81171A2A7475B200368F1E /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		AC81171C2A74FE2700368F1E /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		AC9895732A75CD5B00B751F4 /* SourceId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceId.swift; sourceTree = "<group>"; };
+		AC9895752A75CE5800B751F4 /* SourceName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceName.swift; sourceTree = "<group>"; };
 		ACE711442A7303B200D84C5B /* TestProjectWithNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProjectWithNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE711472A7303B200D84C5B /* TestProjectWithNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProjectWithNewsApp.swift; sourceTree = "<group>"; };
 		ACE7114B2A7303B300D84C5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 				AC8117162A74085700368F1E /* TitleView.swift */,
 				AC8117182A74721600368F1E /* DatePickerView.swift */,
 				AC81171A2A7475B200368F1E /* ListView.swift */,
+				AC9895732A75CD5B00B751F4 /* SourceId.swift */,
+				AC9895752A75CE5800B751F4 /* SourceName.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -309,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC8117152A74030900368F1E /* ImageView.swift in Sources */,
+				AC9895762A75CE5800B751F4 /* SourceName.swift in Sources */,
 				AC8116FD2A73254900368F1E /* ModelForNews.swift in Sources */,
 				AC8117132A74025000368F1E /* DescriptionText.swift in Sources */,
 				AC81170F2A73FEDA00368F1E /* HyperlinkView.swift in Sources */,
@@ -323,6 +330,7 @@
 				AC81170C2A73FA6700368F1E /* DetailView.swift in Sources */,
 				AC8117012A73C06A00368F1E /* NewsRepositoryProtocol.swift in Sources */,
 				AC8117112A7401B800368F1E /* AuthorText.swift in Sources */,
+				AC9895742A75CD5B00B751F4 /* SourceId.swift in Sources */,
 				AC8117062A73D8A500368F1E /* NewsViewModel.swift in Sources */,
 				AC8116F92A731DDE00368F1E /* ModelForNewsRemote.swift in Sources */,
 				AC8116FB2A731FE900368F1E /* APIService.swift in Sources */,
@@ -461,8 +469,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,9 +481,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.TestProjectWithNews";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -490,8 +504,11 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,9 +516,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.TestProjectWithNews";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
