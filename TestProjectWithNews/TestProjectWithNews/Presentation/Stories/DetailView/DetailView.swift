@@ -22,10 +22,12 @@ struct DetailView: View {
                 
                 DescriptionText(descriptionText: article.description ?? Strings.noDescription)
                 
+                SourceId(id: article.source?.id ?? Strings.noId)
                 
-                Text(article.source?.id ?? Strings.noId)
+//                Text(article.source?.id ?? Strings.noId)
+                SourceName(name: article.source?.name ?? Strings.noName)
                 
-                Text(article.source?.name ?? Strings.noName)
+//                Text(article.source?.name ?? Strings.noName)
                 
                 HyperlinkView(url: article.url ?? "")
                 

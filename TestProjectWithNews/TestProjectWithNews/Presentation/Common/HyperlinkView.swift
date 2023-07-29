@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HyperlinkView: View {
+    
     @State var url: String?
 
     var body: some View {

@@ -11,6 +11,7 @@ final class NewsRepository: NewsRepositoryProtocol {
     
     private let apiService = APIService()
     
+    // MARK: - Creating request to the server to get news
     func creatingRequestToTheServerToGetNews(completion: @escaping (Result<ModelForNews, Error>) -> Void) {
         apiService.fetchNewsInCountry { result in
             switch result {
@@ -28,6 +29,7 @@ final class NewsRepository: NewsRepositoryProtocol {
         }
     }
     
+    // MARK: - Search news by keyword
     func searchNewsByKeyword(_ keyword: String, completion: @escaping (Result<ModelForNews, Error>) -> Void) {
         apiService.searchNews(withKeyword: keyword) { result in
             switch result {
@@ -45,6 +47,7 @@ final class NewsRepository: NewsRepositoryProtocol {
         }
     }
     
+    // MARK: - Search news over period of time
     func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date, completion: @escaping (Result<ModelForNews?, Error>) -> Void) {
         apiService.searchNewsOverPeriodOfTime(startDate: startDate, endDate: endDate) { result in
             switch result {
@@ -63,10 +66,10 @@ final class NewsRepository: NewsRepositoryProtocol {
     }
     
     
-    
+    // MARK: - Perform reguest
     private func performReguest(for url: URL, completion: @escaping (Result<ModelForNews, Error>) -> Void) {
         let session = URLSession.shared
-        let task: Void = session.dataTask(with: url) { data, response, error in
+        session.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -98,7 +101,8 @@ final class NewsRepository: NewsRepositoryProtocol {
             } catch {
                 completion(.failure(error))
             }
+            
         }
-            .resume()
+        .resume()
     }
 }

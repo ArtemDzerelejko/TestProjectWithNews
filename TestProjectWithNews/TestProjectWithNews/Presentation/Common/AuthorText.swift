@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AuthorText: View {
+    
     @State var author: String
     
     var body: some View {
