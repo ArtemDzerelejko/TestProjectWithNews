@@ -23,5 +23,4 @@ final class NewsUseCase {
         newsRepository.searchNewsOverPeriodOfTime(startDate: startDate, endDate: endDate, completion: completion)
     }
     
-    
 }

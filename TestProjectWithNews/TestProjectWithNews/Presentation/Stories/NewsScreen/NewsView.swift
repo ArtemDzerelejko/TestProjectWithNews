@@ -26,7 +26,7 @@ struct NewsView: View {
                         .padding()
                     DatePickerView(dateInDatePicker: $startDate)
                     Text("-")
-                    DatePickerView(dateInDatePicker: $endDate) 
+                    DatePickerView(dateInDatePicker: $endDate)
                 }
                 
                 Button(action: {
@@ -61,7 +61,6 @@ struct NewsView: View {
                 viewModel.getNewsInCountry()
             }
         }
-       
     }
 }
 

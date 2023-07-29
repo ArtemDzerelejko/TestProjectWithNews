@@ -11,7 +11,7 @@ private enum Constants {
     static let dateFormat: String = "yyyy-MM-dd HH:mm:ss Z"
 }
 
-class NewsViewModel: ObservableObject {
+final class NewsViewModel: ObservableObject {
     @Published var articles: [Article] = []
     @Published var searchResults: [Article] = []
     @Published var isLoading: Bool = false
@@ -21,8 +21,9 @@ class NewsViewModel: ObservableObject {
     func getNewsInCountry() {
         isLoading = true
         
-        newsUseCase.creatingRequestToTheServerToGetNews { result in
+        newsUseCase.creatingRequestToTheServerToGetNews { [weak self] result in
             DispatchQueue.main.async {
+                guard let self = self else { return }
                 self.isLoading = false
                 
                 switch result {
@@ -35,6 +36,7 @@ class NewsViewModel: ObservableObject {
                 case .failure(let error):
                     print(Strings.errorSearchingNews + "\(error)")
                 }
+                
             }
         }
     }
@@ -63,6 +65,7 @@ class NewsViewModel: ObservableObject {
     
     func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date) {
         isLoading = true
+        
         newsUseCase.searchNewsOverPeriodOfTime(startDate: startDate, endDate: endDate) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -95,7 +98,4 @@ class NewsViewModel: ObservableObject {
             return false
         }
     }
-    
-    
-    
 }

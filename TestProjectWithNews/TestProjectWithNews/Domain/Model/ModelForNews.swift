@@ -38,7 +38,13 @@ struct ArticleObject {
     let publishedAt: String?
     let content: String?
     
-    init(source: Source?, author: String?, title: String?, description: String?, url: String?, urlToImage: String?, publishedAt: String?, content: String?) {
+    init(source: Source?, author: String?,
+         title: String?,
+         description: String?,
+         url: String?,
+         urlToImage: String?,
+         publishedAt: String?,
+         content: String?) {
         self.source = source
         self.author = author
         self.title = title

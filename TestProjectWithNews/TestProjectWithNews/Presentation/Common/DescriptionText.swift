@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DescriptionText: View {
     @State var descriptionText: String
+    
     var body: some View {
         Text(descriptionText)
             .font(.subheadline)

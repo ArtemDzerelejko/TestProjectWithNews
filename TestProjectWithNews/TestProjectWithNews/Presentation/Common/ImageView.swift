@@ -24,7 +24,6 @@ struct ImageView: View {
                     }
             } placeholder: {
                 Rectangle()
-                    
             }
         } else {
             Image(systemName: Strings.photo)

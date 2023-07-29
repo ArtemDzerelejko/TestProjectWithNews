@@ -20,7 +20,7 @@ private enum NewsError: Error {
     case noDataReceived
 }
 
-class APIService {
+final class APIService {
     
     private static func makeURL(withBaseURL baseURL: String, parameters: [String: String]) -> URL? {
         var components = URLComponents(string: baseURL)
@@ -60,7 +60,11 @@ class APIService {
     
     // MARK: - A method to get all the news in the country
     func fetchNewsInCountry(completion: @escaping (Result<ModelForNewsRemote?, Error>) -> Void) {
-        guard let url = APIService.makeURL(withBaseURL: Constants.topHeadlineBaseURL, parameters: ["country": "ua", "apiKey": Constants.apiKey]) else {
+        
+        guard let url = APIService.makeURL(withBaseURL: Constants.topHeadlineBaseURL,
+                                           parameters: ["country": "ua",
+                                                        "apiKey": Constants.apiKey])
+        else {
             completion(.failure(NewsError.invalidURL))
             return
         }
@@ -73,7 +77,11 @@ class APIService {
     
     // MARK: - Method for getting news by keyword
     func searchNews(withKeyword keyword: String, completion:@escaping (Result<ModelForNewsRemote?, Error>) -> Void) {
-        guard let url = APIService.makeURL(withBaseURL: Constants.baseURL, parameters: ["q": keyword, "apiKey": Constants.apiKey]) else {
+        
+        guard let url = APIService.makeURL(withBaseURL: Constants.baseURL,
+                                           parameters: ["q": keyword,
+                                                        "apiKey": Constants.apiKey])
+        else {
             completion(.failure(NewsError.invalidURL))
             return
         }
@@ -85,13 +93,18 @@ class APIService {
     
     //MARK: - A method that searches for news for a certain period of time
     func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date, completion: @escaping (Result<ModelForNewsRemote? , Error>) -> Void) {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Constants.dateFormat
         let startDateString = dateFormatter.string(from: startDate)
         let endDateString = dateFormatter.string(from: endDate)
         
-        guard let url = APIService.makeURL(withBaseURL: Constants.baseURL, parameters: ["q": "Ukraine", "from": startDateString, "to": endDateString, "sortBy": "popularity", "apiKey": Constants.apiKey]) else {
+        guard let url = APIService.makeURL(withBaseURL: Constants.baseURL,
+                                           parameters: ["q": "Ukraine",
+                                                        "from": startDateString,
+                                                        "to": endDateString,
+                                                        "sortBy": "popularity",
+                                                        "apiKey": Constants.apiKey])
+        else {
             completion(.failure(NewsError.invalidURL))
             return
         }
