@@ -12,5 +12,5 @@ protocol NewsRepositoryProtocol {
     
     func searchNewsByKeyword(_ keyword: String, completion: @escaping (Result<ModelForNews, Error>) -> Void)
     
-    func searchNewsOverPeriodOfTime(startData: Date, endData: Date, completion: @escaping (Result<ModelForNews? , Error>) -> Void)
+    func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date, completion: @escaping (Result<ModelForNews? , Error>) -> Void)
 }

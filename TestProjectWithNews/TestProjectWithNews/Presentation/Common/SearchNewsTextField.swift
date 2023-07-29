@@ -17,8 +17,12 @@ struct SearchNewsTextField: View {
             TextField(title, text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             Button(action: action) {
-                Text("Пошук")
+                Text(Strings.search)
             }
+            .foregroundColor(.white)
+            .padding(.all, 10)
+            .background(Color.blue)
+            .cornerRadius(10)
         }
         .padding()
         

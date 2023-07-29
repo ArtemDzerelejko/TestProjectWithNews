@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct HyperlinkView: View {
-    @State var url: String? // Зміна типу на String?
+    @State var url: String?
 
     var body: some View {
-        if let validURL = URL(string: url ?? "") { // Конвертуємо рядок в URL
+        if let validURL = URL(string: url ?? "") { 
             Link(destination: validURL) {
                 Text(validURL.absoluteString)
                     .multilineTextAlignment(.leading)
@@ -20,7 +20,7 @@ struct HyperlinkView: View {
                     .underline()
             }
         } else {
-            Text("Invalid URL")
+            Text(Strings.invalidURL)
                 .foregroundColor(.red)
         }
     }

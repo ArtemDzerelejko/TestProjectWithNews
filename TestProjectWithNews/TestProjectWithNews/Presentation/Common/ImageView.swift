@@ -24,14 +24,14 @@ struct ImageView: View {
                     }
             } placeholder: {
                 Rectangle()
-                    .stroke(Color.black,lineWidth: 2)
+                    
             }
         } else {
-            Image(systemName: "photo")
+            Image(systemName: Strings.photo)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundColor(.blue)
-                .frame(width: width, height: height) // Використовуємо width і height
+                .frame(width: width, height: height)
         }
     }
 }
