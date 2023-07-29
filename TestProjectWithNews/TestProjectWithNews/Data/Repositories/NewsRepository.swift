@@ -98,7 +98,6 @@ final class NewsRepository: NewsRepositoryProtocol {
             } catch {
                 completion(.failure(error))
             }
-            
         }
             .resume()
     }

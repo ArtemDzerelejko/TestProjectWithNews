@@ -25,7 +25,5 @@ struct SearchNewsTextField: View {
             .cornerRadius(10)
         }
         .padding()
-        
-        
     }
 }

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct DetailView: View {
     let article: Article
     
@@ -31,11 +29,9 @@ struct DetailView: View {
                 
                 HyperlinkView(url: article.url ?? "")
                 
-                
                 Spacer()
             }
             .padding()
-            
         }
     }
 }
