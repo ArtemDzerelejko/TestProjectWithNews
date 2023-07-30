@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+typealias ActionHendler = () -> Void
+
 struct SearchNewsTextField: View {
     
-    typealias ActionHendler = () -> Void
     @State var title: String
     @Binding var text: String
     let action: ActionHendler

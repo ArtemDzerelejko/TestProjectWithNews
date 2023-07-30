@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ImageView: View {
     
-    @State var urlImage: String
-    var width = UIScreen.main.bounds.width * 0.9 
-    var height = UIScreen.main.bounds.height * 0.5
+    let urlImage: String
+    private var width = UIScreen.main.bounds.width * 0.9
+    private var height = UIScreen.main.bounds.height * 0.5
+
+    init(urlImage: String) {
+        self.urlImage = urlImage
+    }
 
     var body: some View {
         if let imageURL = URL(string: urlImage) {
@@ -21,7 +25,7 @@ struct ImageView: View {
                     .aspectRatio(contentMode: .fit)
                     .overlay {
                         Rectangle()
-                            .stroke(Color.black,lineWidth: 2)
+                            .stroke(Color.black, lineWidth: 2)
                     }
             } placeholder: {
                 Rectangle()
@@ -35,3 +39,4 @@ struct ImageView: View {
         }
     }
 }
+
