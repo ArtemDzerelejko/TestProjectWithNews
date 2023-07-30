@@ -10,13 +10,9 @@ import SwiftUI
 struct ImageView: View {
     
     let urlImage: String
-    private var width = UIScreen.main.bounds.width * 0.9
-    private var height = UIScreen.main.bounds.height * 0.5
-
-    init(urlImage: String) {
-        self.urlImage = urlImage
-    }
-
+    private let width = UIScreen.main.bounds.width * 0.9
+    private let height = UIScreen.main.bounds.height * 0.5
+    
     var body: some View {
         if let imageURL = URL(string: urlImage) {
             AsyncImage(url: imageURL) { image in
@@ -39,4 +35,3 @@ struct ImageView: View {
         }
     }
 }
-

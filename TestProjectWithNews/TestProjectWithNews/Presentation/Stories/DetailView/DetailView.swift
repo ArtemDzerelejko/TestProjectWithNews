@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
+    
     let article: Article
     
     var body: some View {
@@ -34,4 +35,3 @@ struct DetailView: View {
         }
     }
 }
-

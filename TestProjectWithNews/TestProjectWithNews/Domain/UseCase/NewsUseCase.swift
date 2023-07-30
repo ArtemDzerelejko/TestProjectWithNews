@@ -19,8 +19,8 @@ final class NewsUseCase {
         newsRepository.searchNewsByKeyword(keyword, completion: completion)
     }
     
-    func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date, completion: @escaping (Result<ModelForNews? , Error>) -> Void) {
+    func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date,
+                                    completion: @escaping (Result<ModelForNews? , Error>) -> Void) {
         newsRepository.searchNewsOverPeriodOfTime(startDate: startDate, endDate: endDate, completion: completion)
     }
-    
 }

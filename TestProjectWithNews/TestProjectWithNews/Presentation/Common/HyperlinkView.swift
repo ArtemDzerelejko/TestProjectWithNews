@@ -10,9 +10,9 @@ import SwiftUI
 struct HyperlinkView: View {
     
     @State var url: String?
-
+    
     var body: some View {
-        if let validURL = URL(string: url ?? "") { 
+        if let validURL = URL(string: url ?? "") {
             Link(destination: validURL) {
                 Text(validURL.absoluteString)
                     .multilineTextAlignment(.leading)

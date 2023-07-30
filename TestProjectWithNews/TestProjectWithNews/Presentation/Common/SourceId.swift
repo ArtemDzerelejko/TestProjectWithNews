@@ -19,5 +19,3 @@ struct SourceId: View {
         .foregroundColor(.red)
     }
 }
-
-

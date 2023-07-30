@@ -32,6 +32,7 @@ struct NewsView: View {
                     DatePickerView(dateInDatePicker: $endDate)
                 }
                 
+                
                 Button(action: {
                     viewModel.searchNewsOverPeriodOfTime(startDate: startDate, endDate: endDate)
                     print(startDate)
@@ -49,14 +50,15 @@ struct NewsView: View {
                 case viewModel.isLoading:
                     ProgressView()
                 case !viewModel.filteredArticles.isEmpty:
-                    ListView(article: viewModel.filteredArticles)
+                    ArticleListView(article: viewModel.filteredArticles)
                 case !viewModel.searchResults.isEmpty:
-                    ListView(article: viewModel.searchResults)
+                    ArticleListView(article: viewModel.searchResults)
                 case !viewModel.articles.isEmpty:
-                    ListView(article: viewModel.articles)
+                    ArticleListView(article: viewModel.articles)
                 default :
                     Text(Strings.noArticlesAvailable)
                 }
+                Spacer()
             }
             .navigationBarTitle(Strings.news)
             .navigationBarTitleDisplayMode(.inline)
