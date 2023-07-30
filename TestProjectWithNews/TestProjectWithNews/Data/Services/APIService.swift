@@ -11,7 +11,7 @@ private enum Constants {
     static let baseURL: String = "https://newsapi.org/v2/everything"
     static let topHeadlineBaseURL: String = "https://newsapi.org/v2/top-headlines"
     // if the number of requests for the key is exceeded, this key can be used
-    //    static let apiKey: String = "8643223550e74bf697382b1458fb72b5" 
+    //    static let apiKey: String = "8643223550e74bf697382b1458fb72b5"
     static let apiKey: String = "b29c39ecce764b31a4bbd88b2d8acaaf"
     static let dateFormat: String = "yyyy-MM-dd"
 }
@@ -57,7 +57,7 @@ final class APIService {
                 completion(nil)
             }
         }
-            .resume()
+        .resume()
     }
     
     // MARK: - A method to get all the news in the country

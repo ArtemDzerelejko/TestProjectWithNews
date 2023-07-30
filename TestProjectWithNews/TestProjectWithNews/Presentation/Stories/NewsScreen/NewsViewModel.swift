@@ -39,7 +39,6 @@ final class NewsViewModel: ObservableObject {
                 case .failure(let error):
                     print(Strings.errorSearchingNews + "\(error)")
                 }
-                
             }
         }
     }

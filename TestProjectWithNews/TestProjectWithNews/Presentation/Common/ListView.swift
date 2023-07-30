@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ListView: View {
     
-    let article: [Article]
+    private let article: [Article]
+    
+    init(article: [Article]) {
+        self.article = article
+    }
     
     var body: some View {
         List(article, id: \.title) { article in
