@@ -7,13 +7,9 @@
 
 import SwiftUI
 
-struct ListView: View {
+struct ArticleListView: View {
     
-    private let article: [Article]
-    
-    init(article: [Article]) {
-        self.article = article
-    }
+    let article: [Article]
     
     var body: some View {
         List(article, id: \.title) { article in
@@ -23,6 +19,7 @@ struct ListView: View {
                 VStack(alignment: .leading) {
                     TitleView(title: article.title ?? "")
                     DescriptionText(descriptionText: article.description ?? "")
+                    Text(article.publishedAt ?? "")
                 }
                 .padding()
             }

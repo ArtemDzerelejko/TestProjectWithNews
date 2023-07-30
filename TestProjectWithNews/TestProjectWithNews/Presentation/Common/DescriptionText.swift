@@ -17,4 +17,3 @@ struct DescriptionText: View {
             .foregroundColor(.gray)
     }
 }
-

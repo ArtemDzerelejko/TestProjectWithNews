@@ -30,7 +30,8 @@ final class NewsRepository: NewsRepositoryProtocol {
     }
     
     // MARK: - Search news by keyword
-    func searchNewsByKeyword(_ keyword: String, completion: @escaping (Result<ModelForNews, Error>) -> Void) {
+    func searchNewsByKeyword(_ keyword: String,
+                             completion: @escaping (Result<ModelForNews, Error>) -> Void) {
         apiService.searchNews(withKeyword: keyword) { result in
             switch result {
             case .success(let modelForNewsRemote):
@@ -48,7 +49,9 @@ final class NewsRepository: NewsRepositoryProtocol {
     }
     
     // MARK: - Search news over period of time
-    func searchNewsOverPeriodOfTime(startDate: Date, endDate: Date, completion: @escaping (Result<ModelForNews?, Error>) -> Void) {
+    func searchNewsOverPeriodOfTime(startDate: Date,
+                                    endDate: Date,
+                                    completion: @escaping (Result<ModelForNews?, Error>) -> Void) {
         apiService.searchNewsOverPeriodOfTime(startDate: startDate, endDate: endDate) { result in
             switch result {
             case .success(let modelForNewsRemote):
@@ -67,7 +70,8 @@ final class NewsRepository: NewsRepositoryProtocol {
     
     
     // MARK: - Perform reguest
-    private func performReguest(for url: URL, completion: @escaping (Result<ModelForNews, Error>) -> Void) {
+    private func performReguest(for url: URL,
+                                completion: @escaping (Result<ModelForNews, Error>) -> Void) {
         let session = URLSession.shared
         session.dataTask(with: url) { data, response, error in
             if let error = error {
