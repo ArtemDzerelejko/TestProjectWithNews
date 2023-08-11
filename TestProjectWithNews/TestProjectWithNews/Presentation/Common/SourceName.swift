@@ -16,6 +16,6 @@ struct SourceName: View {
             Text(Strings.name)
             Text(name)
         }
-        .foregroundColor(.red)
+        .foregroundColor(.green)
     }
 }
