@@ -67,46 +67,4 @@ final class NewsRepository: NewsRepositoryProtocol {
             }
         }
     }
-    
-    
-    // MARK: - Perform reguest
-    private func performReguest(for url: URL,
-                                completion: @escaping (Result<ModelForNews, Error>) -> Void) {
-        let session = URLSession.shared
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                let error = NSError(domain: Strings.invalidResponseData, code: 0, userInfo: nil)
-                completion(.failure(error))
-                return
-            }
-            
-            guard (200..<300).contains(httpResponse.statusCode) else {
-                let error = NSError(domain: Strings.invalidResponseStatusCode, code: 0, userInfo: nil)
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                let error = NSError(domain: Strings.noDataReceived, code: 0, userInfo: nil)
-                completion(.failure(error))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let apiResponse = try decoder.decode(ModelForNewsRemote.self, from: data)
-                let modelForNews = ModelForNews(remote: apiResponse)
-                completion(.success(modelForNews))
-            } catch {
-                completion(.failure(error))
-            }
-            
-        }
-        .resume()
-    }
 }

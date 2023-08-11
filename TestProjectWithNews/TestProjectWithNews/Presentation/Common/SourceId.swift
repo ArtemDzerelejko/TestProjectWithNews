@@ -16,6 +16,6 @@ struct SourceId: View {
             Text(Strings.id)
             Text(id)
         }
-        .foregroundColor(.red)
+        .foregroundColor(.green)
     }
 }

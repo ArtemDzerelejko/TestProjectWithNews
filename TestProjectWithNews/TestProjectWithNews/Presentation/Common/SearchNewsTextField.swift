@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-typealias ActionHendler = () -> Void
+typealias ActionHandler = () -> Void
 
 struct SearchNewsTextField: View {
     
     @State var title: String
     @Binding var text: String
-    let action: ActionHendler
+    let action: ActionHandler
     
     var body: some View {
         HStack {
